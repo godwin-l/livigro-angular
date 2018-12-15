@@ -32,7 +32,7 @@ app.engine('html', ngExpressEngine({
 }));
 
 app.set('view engine', 'html');
-app.set('views', join(DIST_FOLDER, 'livigro'));
+app.set('views', join(DIST_FOLDER, 'browser'));
 
 // TODO: implement data requests securely
 app.get('/api/*', (req, res) => {
@@ -40,7 +40,7 @@ app.get('/api/*', (req, res) => {
 });
 
 // Server static files from /livigro
-app.get('*.*', express.static(join(DIST_FOLDER, 'livigro')));
+app.get('*.*', express.static(join(DIST_FOLDER, 'browser')));
 
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {

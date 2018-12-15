@@ -16,8 +16,8 @@ var port = process.env.PORT || 80;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'dist/livigro')));
-app.use('/', express.static(path.join(__dirname, 'dist/livigro')));
+app.use(express.static(path.join(__dirname, 'dist/browser')));
+app.use('/', express.static(path.join(__dirname, 'dist/browser')));
 
 app.use('/api/user',user);
 app.use('/api/booking',booking);
