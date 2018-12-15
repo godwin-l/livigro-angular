@@ -2,7 +2,7 @@
   <div class="container">
     <div fxLayoutAlign="space-between" class="w-100 ">
       <div class="block-title">
-        <h3>Top Packages</h3>
+        <h3>Popular Packages</h3>
       </div>
       <a [routerLink]="['/products']">View All</a>
     </div>
@@ -11,7 +11,7 @@
       <div >
         <mat-card class="box-shadow-md p-4">
           
-            <img [src]="" alt="Photo">
+            <img src="/assets/images/package/logo.jpg" width="170px" height="150px" alt="Photo">
         
           <mat-card-content class="pt-3">
             <h5>{{package.packageName}}</h5>
@@ -20,9 +20,6 @@
             </div>
             <button  mat-raised-button class="button-grey" >Buy</button>
           </mat-card-content>
-          <div class="offer-badge">
-            <mat-chip color="accent" selected>20% off</mat-chip>
-          </div>
         </mat-card>
       </div>
       </ng-container>

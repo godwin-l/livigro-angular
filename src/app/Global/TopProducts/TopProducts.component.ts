@@ -52,7 +52,7 @@ export class TopProductsComponent implements OnInit {
 
    public  listPackages(){
       this.loading = true;
-      this.apiService.getPackages().subscribe((data:  any) => {
+      this.apiService.getTopPackages().subscribe((data:  any) => {
           this.loading = false;
           this.packages  =  data.data;
       });

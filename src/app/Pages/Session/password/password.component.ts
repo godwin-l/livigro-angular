@@ -17,7 +17,7 @@ export class PasswordComponent implements OnInit {
 
   public registerUser(password){
     this.apiService.registerUser(password,this.userService.getMobile()).subscribe((data:  any) => {
-       this.router.navigate(['/thankyou']);
+       this.router.navigate(['/thank-you']);
   });
   }
 
