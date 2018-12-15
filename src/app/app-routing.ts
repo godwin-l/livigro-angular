@@ -19,11 +19,11 @@ export const AppRoutes : Routes = [
       component : MainComponent,
       children: [ 
          {
-            path : 'home',
+            path : 'home-one',
             component : HomeoneComponent
          },
          {
-            path : 'home-two',
+            path : 'home',
             component : HomeTwoComponent
          },
          {

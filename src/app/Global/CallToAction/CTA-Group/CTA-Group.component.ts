@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from  '../../../api.service';
+import {PackageService} from '../../../package.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'embryo-CtaGroup',
@@ -6,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./CTA-Group.component.scss']
 })
 export class CTAGroupComponent implements OnInit {
+
+   public  packages;
+   public loading = false;
 
    callToActionArray : any = [
       {
@@ -34,9 +40,21 @@ export class CTAGroupComponent implements OnInit {
       }
    ]
 
-   constructor() { }
+   constructor(private  apiService:  ApiService, private router: Router, private packageService : PackageService) { }
 
    ngOnInit() {
    }
+
+   public  listPackages(){
+      this.loading = true;
+      this.apiService.getPackages().subscribe((data:  any) => {
+          this.loading = false;
+          this.packages  =  data.data;
+      });
+    }
+    public viewPackage(data){
+      this.packageService.setPackageInfo(data);
+      this.router.navigate(['/viewpackage']);
+    }
 
 }

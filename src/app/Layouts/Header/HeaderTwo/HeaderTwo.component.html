@@ -16,10 +16,12 @@
          <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="25" fxFlex.lg="15%" fxFlex.xl="15%">
        <span fxFlex></span>
            <div class="list-flex user-tool">
-             <embryo-HeaderCart [currency]="embryoService?.currency" [cartProducts]="embryoService?.localStorageCartProducts" [count]="embryoService?.navbarCartCount" (removeProductData)="openConfirmationPopup($event)"></embryo-HeaderCart>
+             <embryo-HeaderCart *ngIf="isLogged" [currency]="embryoService?.currency" [cartProducts]="embryoService?.localStorageCartProducts" [count]="embryoService?.navbarCartCount" (removeProductData)="openConfirmationPopup($event)"></embryo-HeaderCart>
  
-             <embryo-WishList [currency]="embryoService?.currency" [wishListProducts]="embryoService?.localStorageWishlist" [count]="embryoService?.navbarWishlistProdCount" (removeWishListData)="openWishlistConfirmationPopup($event)" (addAllWishlistToCart)="addAllWishlistToCart($event)" (addToCart)="addToCart($event)"></embryo-WishList>
-             <embryo-HeaderUserProfileDropdown></embryo-HeaderUserProfileDropdown>
+             <embryo-WishList *ngIf="isLogged" [currency]="embryoService?.currency" [wishListProducts]="embryoService?.localStorageWishlist" [count]="embryoService?.navbarWishlistProdCount" (removeWishListData)="openWishlistConfirmationPopup($event)" (addAllWishlistToCart)="addAllWishlistToCart($event)" (addToCart)="addToCart($event)"></embryo-WishList>
+             <embryo-HeaderUserProfileDropdown *ngIf="isLogged"></embryo-HeaderUserProfileDropdown>
+             <div *ngIf="!isLogged" style="cursor: progress;" routerLink="/session/signin">Sign in</div>&nbsp;&nbsp;&nbsp;
+             <div *ngIf="!isLogged" style="cursor: progress;" routerLink="/session/signup" >Register</div>
            </div>
          </div>
        </div>

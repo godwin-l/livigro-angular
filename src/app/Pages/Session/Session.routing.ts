@@ -4,6 +4,7 @@ import { RegisterComponent } from './Register/Register.component';
 import { SignInComponent } from './SignIn/SignIn.component';
 import { ForgotPasswordComponent } from './ForgotPassword/ForgotPassword.component';
 import { ThankYouComponent } from './ThankYou/ThankYou.component';
+import { OtpComponent } from './otp/otp.component';
 
 export const SessionRoutes : Routes = [
 	{ 
@@ -25,5 +26,9 @@ export const SessionRoutes : Routes = [
    {
       path: 'forgot-password',
       component: ForgotPasswordComponent
+   },
+   {
+      path: 'otp',
+      component: OtpComponent
    }
 ]

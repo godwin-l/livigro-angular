@@ -1,3 +1,6 @@
+import { ApiService } from  '../../../api.service';
+import {PackageService} from '../../../package.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { EmbryoService } from '../../../Services/Embryo.service';
 
@@ -10,8 +13,10 @@ export class HomeTwoComponent implements OnInit {
 
    topProducts             : any;
    lighteningDealsProducts : any;
-   
-   constructor(public embryoService : EmbryoService) { }
+   public  packages;
+   public loading = false;
+   constructor(public embryoService : EmbryoService,private  apiService:  ApiService, private router: Router, private packageService : PackageService) { }
+
 
    ngOnInit() {
       this.lighteningDeals();
@@ -52,5 +57,19 @@ export class HomeTwoComponent implements OnInit {
    public addToCart(value) {
       this.embryoService.addToCart(value);
    }
+
+
+
+   public  listPackages(){
+      this.loading = true;
+      this.apiService.getPackages().subscribe((data:  any) => {
+          this.loading = false;
+          this.packages  =  data.data;
+      });
+    }
+    public viewPackage(data){
+      this.packageService.setPackageInfo(data);
+      this.router.navigate(['/viewpackage']);
+    }
 
 }

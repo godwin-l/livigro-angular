@@ -37,6 +37,8 @@ import { RegisterComponent } from './Register/Register.component';
 import { SignInComponent } from './SignIn/SignIn.component';
 import { ForgotPasswordComponent } from './ForgotPassword/ForgotPassword.component';
 import { ThankYouComponent } from './ThankYou/ThankYou.component';
+import { OtpComponent } from './otp/otp.component';
+import { PasswordComponent } from './password/password.component';
 
 @NgModule({
    imports: [
@@ -75,7 +77,9 @@ import { ThankYouComponent } from './ThankYou/ThankYou.component';
       RegisterComponent,
       SignInComponent,
       ThankYouComponent,
-      ForgotPasswordComponent
+      ForgotPasswordComponent,
+      OtpComponent,
+      PasswordComponent
    ]
 })
 export class SessionModule { }

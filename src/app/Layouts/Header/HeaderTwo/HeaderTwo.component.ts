@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmbryoService } from '../../../Services/Embryo.service';
+import {UserService} from '../../../user.service';
+import {Router}  from  '@angular/router';
 declare var $: any;
 
 @Component({
@@ -9,11 +11,19 @@ declare var $: any;
 })
 export class HeaderTwoComponent implements OnInit {
 
+   public mobile='';
+  public isLogged;
+
    popupResponse : any;
 
-   constructor(public embryoService : EmbryoService) { }
+   constructor(public embryoService : EmbryoService,private userService: UserService, private router:Router) { }
 
    ngOnInit() {
+      this.mobile=this.userService.getMobile();
+      if(this.userService.getUserId()){
+        this.isLogged=true;
+      }
+      else this.isLogged=false;
    }
 
    public toggleSearch() {

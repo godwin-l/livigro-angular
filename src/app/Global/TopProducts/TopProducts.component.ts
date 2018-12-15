@@ -1,11 +1,19 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
+import { ApiService } from  '../../api.service';
+import {PackageService} from '../../package.service';
+import { Router } from '@angular/router';
+import { EmbryoService } from '../../Services/Embryo.service';
+
 @Component({
   selector: 'embryo-TopProducts',
   templateUrl: './TopProducts.component.html',
   styleUrls: ['./TopProducts.component.scss']
 })
 export class TopProductsComponent implements OnInit {
+
+   public  packages;
+   public loading = false;
 
    @Input() products : any;
 
@@ -16,9 +24,10 @@ export class TopProductsComponent implements OnInit {
    gridLength = 4;
    randomSortProducts : any;
 
-   constructor() { }
+   constructor(public embryoService : EmbryoService , private  apiService:  ApiService, private router: Router, private packageService : PackageService) { }
 
    ngOnInit() {
+      this.listPackages();
       if(this.products){
          this.randomSortProducts = this.products.sort( () => Math.random() - 0.5);
       }
@@ -40,5 +49,17 @@ export class TopProductsComponent implements OnInit {
          }
       }
    }
+
+   public  listPackages(){
+      this.loading = true;
+      this.apiService.getPackages().subscribe((data:  any) => {
+          this.loading = false;
+          this.packages  =  data.data;
+      });
+    }
+    public viewPackage(data){
+      this.packageService.setPackageInfo(data);
+      this.router.navigate(['/viewpackage']);
+    }
 
 }

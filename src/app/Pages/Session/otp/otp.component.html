@@ -1,0 +1,40 @@
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+<div class="modal" [ngStyle]="{'display':display}" >
+    <div class="modal-content">
+      <div class="modal-header">
+          <h6>Wrong OTP , Please Check</h6>
+        <span class="close" (click)="closeModalDialog()">&times;</span>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-container bg-white section-gap-lg">
+    <div class="container">
+      <div fxLayout='row wrap' fxLayoutAlign="center center">
+        <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="80" fxFlex.lg="70" fxFlex.xl="70">
+          <div fxLayout='row wrap' fxLayoutAlign="center center">
+            <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+              <div class="form-img sign-in-image">
+              </div>
+            </div>
+            <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+                <mat-card class="sign-in-form form-margin">
+                    <h4>OTP</h4>
+<form>
+  <div class="mb-4">
+    <mat-form-field class="w-100">
+      <input matInput type="text" #otp placeholder="One Time Password" required>
+    </mat-form-field>
+  </div>
+  <div class="mb-3">
+  </div>
+  <button color="accent" class="button-lg mb-3" mat-raised-button (click)="verifyOTP(otp.value)">Continue</button>
+</form>
+</mat-card>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
