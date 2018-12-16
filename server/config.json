@@ -1,8 +1,0 @@
-{
-"mongo":"mongodb://livigro:livigro1!@ds251902.mlab.com:51902/livigro",
-"bonsai": "https://pbv4c3qp0z:buhj0psxq9@livigro-6393148173.ap-southeast-2.bonsaisearch.net",
-"msg91api":"243477AVOV0jN2Q5bc967d9",
-"msg91senderid":"LIVGRO",
-"msg91dialcode":"91",
-"msg91route":"4"
-}
